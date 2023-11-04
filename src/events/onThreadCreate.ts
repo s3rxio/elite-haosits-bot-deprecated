@@ -1,6 +1,7 @@
-import { AnyThreadChannel } from "discord.js";
+import { AnyThreadChannel, ChannelType } from "discord.js";
 
 export default async (thread: AnyThreadChannel, _newlyCreated: boolean) => {
+  if (thread.parent?.type !== ChannelType.GuildForum) return;
   if (thread.parentId !== process.env.REACTIONS_CHANNEL_ID) return;
 
   const firstMessage = await thread.messages
