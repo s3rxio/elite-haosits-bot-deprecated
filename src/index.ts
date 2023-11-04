@@ -8,7 +8,8 @@ import {
   onReady,
   onMessageCreate,
   onMessageDelete,
-  onMessageUpdate
+  onMessageUpdate,
+  onThreadCreate
 } from "./events";
 
 export const client = new Client({
@@ -23,5 +24,6 @@ client.on("ready", onReady);
 client.on("messageCreate", onMessageCreate);
 client.on("messageDelete", onMessageDelete);
 client.on("messageUpdate", onMessageUpdate);
+client.on("threadCreate", onThreadCreate);
 
 client.login(process.env.BOT_TOKEN);
